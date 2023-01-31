@@ -3,42 +3,43 @@ package main
 import (
 	"testing"
 
-	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/suite"
 )
 
-type SuiteForCheckStringForParity struct {
+type IsStringEvenTestSuite struct {
 	suite.Suite
 }
 
-func (suite *SuiteForCheckStringForParity) TestEmptyString() {
-
-	strnull := ""
-
-	result, err := checkStringForParity(strnull)
-
-	assert.NotNil(suite.T(), result)
-	assert.NotEqual(suite.T(), nil, err, "error must be not nil")
+func Test_IsStringEvenTestSuite(t *testing.T) {
+	suite.Run(t, new(IsStringEvenTestSuite))
 }
 
-func (suite *SuiteForCheckStringForParity) TestNonParyString() {
-	str1 := "qwe"
+//Test of method IsStringEven with empty string
+func (suite *IsStringEvenTestSuite) Test_IsStringEven_withEmptyString() {
+	emptyString := ""
 
-	result, err := checkStringForParity(str1)
+	result, err := IsStringEven(emptyString)
 
-	assert.Equal(suite.T(), false, *result, "result must be false")
-	assert.NotNil(suite.T(), err)
+	suite.NotEqual(result, nil)
+	suite.NotEqual(err, nil)
 }
 
-func (suite *SuiteForCheckStringForParity) TestParyString() {
-	str2 := "qwer"
+//Test of method IsStringEven with odd string
+func (suite *IsStringEvenTestSuite) Test_IsStringEven_OddString() {
+	oddString := "qwe"
 
-	result, err := checkStringForParity(str2)
+	result, err := IsStringEven(oddString)
 
-	assert.Equal(suite.T(), true, *result, "result must be true")
-	assert.NotNil(suite.T(), err)
+	suite.Equal(*result, false)
+	suite.Equal(err, nil)
 }
 
-func SuiteForCheckStringForParityRun(t *testing.T) {
-	suite.Run(t, new(SuiteForCheckStringForParity))
+//Test of method IsStringEven with even string
+func (suite *IsStringEvenTestSuite) Test_IsStringEven_EvenString() {
+	evenString := "qwer"
+
+	result, err := IsStringEven(evenString)
+
+	suite.Equal(*result, true)
+	suite.Equal(err, nil)
 }
