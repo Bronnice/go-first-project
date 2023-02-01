@@ -3,7 +3,7 @@ package service
 import (
 	"errors"
 
-	"qwer/utils"
+	"stringvalidator/utils"
 )
 
 func IsStringEven(str string) (*bool, error) {

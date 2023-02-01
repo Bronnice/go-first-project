@@ -4,7 +4,7 @@ import (
 	"flag"
 	"fmt"
 
-	"qwer/service"
+	"stringvalidator/service"
 )
 
 func main() {

@@ -30,14 +30,14 @@ func (suite *IsStringEvenTestSuite) Test_IsStringEven_OddString() {
 	result, err := IsStringEven(oddString)
 
 	suite.Equal(*result, false)
-	suite.NotNil(err)
+	suite.Nil(err)
 }
 
 func (suite *IsStringEvenTestSuite) Test_IsStringEven_EvenString() {
 	evenString := "qwer"
 
-	result, err := IsStringEven(evenString)
+	isEven, err := IsStringEven(evenString)
 
-	suite.Equal(*result, true)
-	suite.NotNil(err)
+	suite.Equal(*isEven, true)
+	suite.Nil(err)
 }
