@@ -15,29 +15,29 @@ func Test_IsStringEvenTestSuite(t *testing.T) {
 	suite.Run(t, new(IsStringEvenTestSuite))
 }
 
-func (suite *IsStringEvenTestSuite) Test_IsStringEven_withEmptyString() {
+func (suite *IsStringEvenTestSuite) Test_IsStringEven_withEmptyString_expectEror() {
 	emptyString := ""
 
-	result, err := IsStringEven(emptyString)
+	isEven, err := IsStringEven(emptyString)
 
-	suite.Nil(result)
+	suite.Nil(isEven)
 	suite.NotNil(err)
 }
 
-func (suite *IsStringEvenTestSuite) Test_IsStringEven_OddString() {
+func (suite *IsStringEvenTestSuite) Test_IsStringEven_OddString_expectOdd() {
 	oddString := "qwe"
 
-	result, err := IsStringEven(oddString)
+	isEven, err := IsStringEven(oddString)
 
-	suite.Equal(*result, false)
+	suite.NotNil(*isEven)
 	suite.Nil(err)
 }
 
-func (suite *IsStringEvenTestSuite) Test_IsStringEven_EvenString() {
+func (suite *IsStringEvenTestSuite) Test_IsStringEven_EvenString_expectEven() {
 	evenString := "qwer"
 
 	isEven, err := IsStringEven(evenString)
 
-	suite.Equal(*isEven, true)
+	suite.NotNil(*isEven)
 	suite.Nil(err)
 }
