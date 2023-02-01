@@ -15,4 +15,4 @@
 # vendor/
 go.sum
 .vscode
-stringvalidator
+build
