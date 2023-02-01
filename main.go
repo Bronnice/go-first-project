@@ -11,14 +11,14 @@ func main() {
 	flagString := flag.String("mystring", "", "Your own string")
 	flag.Parse()
 
-	result, err := service.IsStringEven(*flagString)
+	isEven, err := service.IsStringEven(*flagString)
 	if err != nil {
 		fmt.Println(err)
+		return
+	}
+	if *isEven {
+		fmt.Println("Even number of letters")
 	} else {
-		if *result {
-			fmt.Println("Even number of letters")
-		} else {
-			fmt.Println("Odd number of letters")
-		}
+		fmt.Println("Odd number of letters")
 	}
 }
