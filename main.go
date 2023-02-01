@@ -15,7 +15,7 @@ func main() {
 	if err != nil {
 		fmt.Println(err)
 	} else {
-		if *result == true {
+		if *result {
 			fmt.Println("Even number of letters")
 		} else {
 			fmt.Println("Odd number of letters")
